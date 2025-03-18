@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Send } from 'lucide-react';
+import { Menu, X, Send, MessageCircle } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import SubmitNewsForm from './SubmitNewsForm';
 
@@ -38,11 +38,7 @@ const Header = () => {
             className="text-black hover:text-brand transition-colors" 
             aria-label="Telegram"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-telegram">
-              <path d="M21 12a9 9 0 1 1-9-9c4.97 0 9 4.03 9 9z"></path>
-              <path d="M15 10.1L9 13.8l-2-1"></path>
-              <path d="M9 13.8v2.3a.5.5 0 0 0 .68.4L15 10.1"></path>
-            </svg>
+            <MessageCircle className="h-5 w-5" />
           </a>
           <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
             <DialogTrigger asChild>
@@ -81,11 +77,7 @@ const Header = () => {
               className="flex items-center text-black font-medium hover:text-brand transition-colors px-4 py-2 gap-2" 
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-telegram">
-                <path d="M21 12a9 9 0 1 1-9-9c4.97 0 9 4.03 9 9z"></path>
-                <path d="M15 10.1L9 13.8l-2-1"></path>
-                <path d="M9 13.8v2.3a.5.5 0 0 0 .68.4L15 10.1"></path>
-              </svg>
+              <MessageCircle className="h-5 w-5" />
               <span>Telegram</span>
             </a>
             <div className="px-4 py-2">

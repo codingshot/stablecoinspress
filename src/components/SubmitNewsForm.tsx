@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { AlertCircle, Send } from 'lucide-react';
+import { AlertCircle, Send, Copy, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 
 const SubmitNewsForm = ({ onClose }: { onClose: () => void }) => {
@@ -11,6 +11,9 @@ const SubmitNewsForm = ({ onClose }: { onClose: () => void }) => {
   const [isValid, setIsValid] = useState(false);
   const [tweetId, setTweetId] = useState('');
   const [username, setUsername] = useState('');
+  const [copySuccess, setCopySuccess] = useState(false);
+  
+  const submissionText = "!submit @curatedotfun #stablecoins";
 
   const validateTweetUrl = (url: string) => {
     // Regex to match Twitter/X URLs and extract username and tweet ID
@@ -32,17 +35,27 @@ const SubmitNewsForm = ({ onClose }: { onClose: () => void }) => {
     }
   };
 
+  const handleCopyText = () => {
+    navigator.clipboard.writeText(submissionText).then(() => {
+      setCopySuccess(true);
+      toast.success('Text copied to clipboard!');
+      setTimeout(() => setCopySuccess(false), 3000);
+    }).catch(err => {
+      toast.error('Failed to copy text');
+      console.error('Failed to copy: ', err);
+    });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
     if (validateTweetUrl(tweetUrl)) {
-      // Create intent URL for submitting the tweet
-      const intentText = `!submit @curatedotfun #stablecoins ${tweetUrl}`;
-      const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(intentText)}`;
+      // Create a reply intent URL (using the tweet ID to make it a reply)
+      const replyIntentUrl = `https://twitter.com/intent/tweet?in_reply_to=${tweetId}&text=${encodeURIComponent(submissionText)}`;
       
       // Open in new tab
-      window.open(intentUrl, '_blank');
-      toast.success('Opening submission form in Twitter');
+      window.open(replyIntentUrl, '_blank');
+      toast.success('Opening reply form in Twitter');
       onClose();
     } else {
       toast.error('Please enter a valid Twitter/X tweet URL');
@@ -81,6 +94,24 @@ const SubmitNewsForm = ({ onClose }: { onClose: () => void }) => {
               </p>
             </div>
 
+            <div className="flex items-center p-3 bg-gray-50 border border-gray-200 rounded-md gap-2">
+              <div className="flex-grow">
+                <p className="text-sm font-medium">{submissionText}</p>
+                <p className="text-xs text-gray-500 mt-1">
+                  Copy this text to use in your submission
+                </p>
+              </div>
+              <Button
+                type="button" 
+                variant="outline"
+                size="sm"
+                onClick={handleCopyText}
+                className="flex-shrink-0"
+              >
+                {copySuccess ? <CheckCircle className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              </Button>
+            </div>
+
             {isValid && (
               <div className="p-3 bg-green-50 border border-green-200 rounded-md">
                 <p className="text-sm text-green-800">
@@ -107,8 +138,9 @@ const SubmitNewsForm = ({ onClose }: { onClose: () => void }) => {
               <h4 className="font-medium text-sm mb-2">Submission Instructions:</h4>
               <ol className="text-xs text-gray-700 space-y-1 list-decimal pl-4">
                 <li>Enter the URL of a newsworthy tweet about stablecoins</li>
-                <li>Click "Submit" to open Twitter with a pre-formatted submission</li>
-                <li>Post the tweet to complete your submission</li>
+                <li>Copy the submission text shown above</li>
+                <li>Click "Submit" to open a reply form on Twitter</li>
+                <li>Post the reply to complete your submission</li>
                 <li>Our curators will review your submission</li>
               </ol>
             </div>
