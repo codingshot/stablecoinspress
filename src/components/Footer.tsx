@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Send, MessageCircle } from 'lucide-react';
+import { Send, Upload } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import SubmitNewsForm from './SubmitNewsForm';
 import { useState } from 'react';
@@ -41,7 +41,7 @@ const Footer = () => {
                 <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
                   <DialogTrigger asChild>
                     <button className="text-gray-600 hover:text-brand transition-colors flex items-center gap-2">
-                      <MessageCircle className="h-5 w-5" />
+                      <Upload className="h-5 w-5" />
                       <span>Submit News</span>
                     </button>
                   </DialogTrigger>

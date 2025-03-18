@@ -1,9 +1,8 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { AlertCircle, Send, Copy, CheckCircle } from 'lucide-react';
+import { AlertCircle, Upload, Copy, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 
 const SubmitNewsForm = ({ onClose }: { onClose: () => void }) => {
@@ -16,7 +15,6 @@ const SubmitNewsForm = ({ onClose }: { onClose: () => void }) => {
   const submissionText = "!submit @curatedotfun #stablecoins";
 
   const validateTweetUrl = (url: string) => {
-    // Regex to match Twitter/X URLs and extract username and tweet ID
     const twitterRegex = /(?:twitter|x)\.com\/([^\/]+)\/status\/(\d+)/i;
     const match = url.match(twitterRegex);
     
@@ -50,10 +48,8 @@ const SubmitNewsForm = ({ onClose }: { onClose: () => void }) => {
     e.preventDefault();
     
     if (validateTweetUrl(tweetUrl)) {
-      // Create a reply intent URL (using the tweet ID to make it a reply)
       const replyIntentUrl = `https://twitter.com/intent/tweet?in_reply_to=${tweetId}&text=${encodeURIComponent(submissionText)}`;
       
-      // Open in new tab
       window.open(replyIntentUrl, '_blank');
       toast.success('Opening reply form in Twitter');
       onClose();
@@ -160,7 +156,7 @@ const SubmitNewsForm = ({ onClose }: { onClose: () => void }) => {
           disabled={!isValid}
           className="gap-2"
         >
-          <Send className="h-4 w-4" />
+          <Upload className="h-4 w-4" />
           Submit
         </Button>
       </CardFooter>
