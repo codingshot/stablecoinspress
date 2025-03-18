@@ -8,6 +8,7 @@ import { defaultNewsData } from '@/utils/defaultData';
 import { toast } from 'sonner';
 import SearchFilters, { TimeFilter, SortOption } from './SearchFilters';
 import EmptyState from './EmptyState';
+import SubmitNewsForm from './SubmitNewsForm';
 
 const NewsFeed = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
@@ -20,6 +21,7 @@ const NewsFeed = () => {
   const [timeFilter, setTimeFilter] = useState<TimeFilter>('all');
   const [sortOrder, setSortOrder] = useState<SortOption>('newest');
   const [searchBy, setSearchBy] = useState<'all' | 'content' | 'username' | 'curator'>('all');
+  const [showSubmitForm, setShowSubmitForm] = useState(false);
 
   useEffect(() => {
     const getNews = async () => {
@@ -164,6 +166,7 @@ const NewsFeed = () => {
         setSearchBy={setSearchBy}
         resetFilters={resetFilters}
         hasActiveFilters={hasActiveFilters}
+        curatorLabel="Show Curator Notes"
       />
 
       {filteredNews.length > 0 ? (
