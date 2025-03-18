@@ -1,11 +1,14 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Send } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import SubmitNewsForm from './SubmitNewsForm';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSubmitDialogOpen, setIsSubmitDialogOpen] = useState(false);
 
   // Track scroll position to change header style
   useEffect(() => {
@@ -41,7 +44,17 @@ const Header = () => {
               <path d="M9 13.8v2.3a.5.5 0 0 0 .68.4L15 10.1"></path>
             </svg>
           </a>
-          <SubmitNewsButton />
+          <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
+            <DialogTrigger asChild>
+              <button className="px-4 py-2 bg-brand text-white rounded-md hover:bg-brand/90 transition-colors flex items-center gap-2">
+                <Send className="h-4 w-4" />
+                Submit News
+              </button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md p-0">
+              <SubmitNewsForm onClose={() => setIsSubmitDialogOpen(false)} />
+            </DialogContent>
+          </Dialog>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -76,28 +89,25 @@ const Header = () => {
               <span>Telegram</span>
             </a>
             <div className="px-4 py-2">
-              <SubmitNewsButton isMobile />
+              <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
+                <DialogTrigger asChild>
+                  <button 
+                    className="w-full flex justify-center items-center px-4 py-2 bg-brand text-white rounded-md hover:bg-brand/90 transition-colors gap-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Send className="h-4 w-4" />
+                    Submit News
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md p-0">
+                  <SubmitNewsForm onClose={() => setIsSubmitDialogOpen(false)} />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
       )}
     </header>
-  );
-};
-
-// Create a separate component for the Submit News button
-const SubmitNewsButton = ({ isMobile = false }: { isMobile?: boolean }) => {
-  const buttonClass = isMobile 
-    ? "w-full flex justify-center items-center px-4 py-2 bg-brand text-white rounded-md hover:bg-brand/90 transition-colors" 
-    : "px-4 py-2 bg-brand text-white rounded-md hover:bg-brand/90 transition-colors";
-    
-  return (
-    <button 
-      className={buttonClass}
-      onClick={() => window.open("https://twitter.com/intent/tweet?text=!submit%20@curatedotfun%20%23stablecoins", "_blank")}
-    >
-      Submit News
-    </button>
   );
 };
 
