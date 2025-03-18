@@ -129,7 +129,7 @@ export default [
     "tweetId": "1896910993894289446",
     "userId": "1055894724245155841",
     "username": "avax",
-    "content": "DeFi 🤝 Real World Payments\n\n@MaalyPay is making stablecoin payments seamless—online &amp; offline—powered by Avalanche.\n\nAnd to mark this significant milestone, the MoU was recently signed at Investopia 2025, witnessed by the UAE Minister of Economy 👇 https://t.co/Iks1CqOZiJ",
+    "content": "DeFi 🤝 Real World Payments\n\n@MaalyPay is making stablecoin payments seamless—online & offline—powered by Avalanche.\n\nAnd to mark this significant milestone, the MoU was recently signed at Investopia 2025, witnessed by the UAE Minister of Economy 👇 https://t.co/Iks1CqOZiJ",
     "curatorNotes": "@MaalyPay",
     "curatorId": "1688730036474396672",
     "curatorUsername": "potlock_intern",
@@ -756,7 +756,7 @@ export default [
     "userId": "1637885519374721035",
     "username": "ethena_labs",
     "content": "Introducing @convergeonchain: The settlement network for traditional finance and digital dollars, powered by @ethena_labs and @Securitize\n\nOur vision is to provide the first purpose built settlement layer where TradFi will merge with DeFi, centered on USDe & USDtb and secured by ENA",
-    "curatorNotes": "@convergeonchain @Securitize   Ethena &amp; Securitise team up, and announce Converge Chain",
+    "curatorNotes": "@convergeonchain @Securitize   Ethena & Securitise team up, and announce Converge Chain",
     "curatorId": "1654266255711301632",
     "curatorUsername": "plugrel",
     "curatorTweetId": "1901772266339491910",
@@ -768,7 +768,7 @@ export default [
         "feedId": "stablecoins",
         "adminId": "plugrel",
         "action": "approve",
-        "note": "@convergeonchain @Securitize   Ethena &amp; Securitise team up, and announce Converge Chain",
+        "note": "@convergeonchain @Securitize   Ethena & Securitise team up, and announce Converge Chain",
         "timestamp": "2025-03-17T23:06:56.000Z",
         "moderationResponseTweetId": "1901772266339491910"
       }
