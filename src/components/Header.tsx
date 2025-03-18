@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Menu, X } from 'lucide-react';
+import { Search, Menu, X, Telegram } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,9 +39,10 @@ const Header = () => {
             href="https://t.me/stablecoinspress" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-black font-medium hover:text-brand transition-colors"
+            className="text-black hover:text-brand transition-colors"
+            aria-label="Telegram"
           >
-            Telegram
+            <Telegram size={20} />
           </a>
           <button className="text-black hover:text-brand transition-colors">
             <Search size={20} />
@@ -72,10 +73,11 @@ const Header = () => {
               href="https://t.me/stablecoinspress" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-black font-medium hover:text-brand transition-colors px-4 py-2"
+              className="flex items-center text-black font-medium hover:text-brand transition-colors px-4 py-2 gap-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Telegram
+              <Telegram size={18} />
+              <span>Telegram</span>
             </a>
             <div className="px-4 py-2">
               <div className="relative">

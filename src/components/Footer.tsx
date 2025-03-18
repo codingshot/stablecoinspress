@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import { Telegram } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -26,17 +27,10 @@ const Footer = () => {
                     href="https://t.me/stablecoinspress" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-brand transition-colors"
+                    className="flex items-center text-gray-600 hover:text-brand transition-colors gap-2"
                   >
-                    Telegram
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#" 
-                    className="text-gray-600 hover:text-brand transition-colors"
-                  >
-                    Twitter
+                    <Telegram size={18} />
+                    <span>Telegram</span>
                   </a>
                 </li>
               </ul>
