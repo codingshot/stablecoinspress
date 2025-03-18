@@ -24,7 +24,7 @@ const Header = () => {
       <div className="container-narrow flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/603d52e2-2c07-43a9-80a0-67ce5195aa2b.png" 
+            src="/lovable-uploads/2d4ceafd-1824-4085-bac7-a50af005350d.png" 
             alt="stablecoins.press logo" 
             className="h-10 md:h-12"
           />

@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/603d52e2-2c07-43a9-80a0-67ce5195aa2b.png" 
+                src="/lovable-uploads/2d4ceafd-1824-4085-bac7-a50af005350d.png" 
                 alt="stablecoins.press logo" 
                 className="h-10"
               />
@@ -63,14 +63,6 @@ const Footer = () => {
                     className="text-gray-600 hover:text-brand transition-colors"
                   >
                     Submit News
-                  </a>
-                </li>
-                <li>
-                  <a 
-                    href="#" 
-                    className="text-gray-600 hover:text-brand transition-colors"
-                  >
-                    About
                   </a>
                 </li>
               </ul>
