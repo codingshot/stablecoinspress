@@ -939,8 +939,8 @@ export default [
     "tweetId": "1901982147587748193",
     "userId": "1039449274344529920",
     "username": "Dune",
-    "content": "1/ Stablecoins are reshaping finance 🏦\n\nExplore all insights, market trends, asset deep dives, and more in \"The State of Stablecoins 2025\"— a comprehensive report by Dune &amp; @artemis\n\nLink at the end of the thread 🧵 https://t.co/ociR0HJlsX",
-    "curatorNotes": "@artemis    Dune &amp; Artemis launch the Stable of Stablecoins 2025 report",
+    "content": "1/ Stablecoins are reshaping finance 🏦\n\nExplore all insights, market trends, asset deep dives, and more in \"The State of Stablecoins 2025\"— a comprehensive report by Dune & @artemis\n\nLink at the end of the thread 🧵 https://t.co/ociR0HJlsX",
+    "curatorNotes": "@artemis    Dune & Artemis launch the Stable of Stablecoins 2025 report",
     "curatorId": "1654266255711301632",
     "curatorUsername": "plugrel",
     "curatorTweetId": "1902017330655170880",
@@ -952,7 +952,7 @@ export default [
         "feedId": "stablecoins",
         "adminId": "plugrel",
         "action": "approve",
-        "note": "@artemis    Dune &amp; Artemis launch the Stable of Stablecoins 2025 report",
+        "note": "@artemis    Dune & Artemis launch the Stable of Stablecoins 2025 report",
         "timestamp": "2025-03-18T15:20:44.000Z",
         "moderationResponseTweetId": "1902017330655170880"
       },
@@ -961,7 +961,7 @@ export default [
         "feedId": "usa",
         "adminId": "plugrel",
         "action": "approve",
-        "note": "@artemis    Dune &amp; Artemis launch the Stable of Stablecoins 2025 report",
+        "note": "@artemis    Dune & Artemis launch the Stable of Stablecoins 2025 report",
         "timestamp": "2025-03-18T15:20:44.000Z",
         "moderationResponseTweetId": "1902017330655170880"
       }
