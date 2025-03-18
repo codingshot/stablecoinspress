@@ -28,6 +28,9 @@ const Index = () => {
             </h1>
             <p className="text-xl text-gray-600 text-center max-w-2xl mx-auto">
               The premier daily source for all things stablecoins, bringing you the latest updates and insights.
+              <span className="block text-xs mt-2">
+                powered by <a href="https://curate.fun" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">curate.fun</a>
+              </span>
             </p>
           </section>
           
