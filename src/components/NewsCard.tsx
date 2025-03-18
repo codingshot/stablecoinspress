@@ -1,115 +1,43 @@
 
-import { useState, useEffect } from 'react';
-import { ExternalLink } from 'lucide-react';
 import { NewsItem } from '@/types';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { formatDate } from '@/services/api';
 
 interface NewsCardProps {
   item: NewsItem;
+  showCuratorNotes?: boolean;
 }
 
-const NewsCard = ({ item }: NewsCardProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const card = document.getElementById(`news-card-${item.tweetId}`);
-    if (card) observer.observe(card);
-
-    return () => observer.disconnect();
-  }, [item.tweetId]);
-
-  // Extract links from content for proper rendering
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  const parts = item.content.split(urlRegex);
-
-  const handleOriginalTweetClick = () => {
-    window.open(`https://twitter.com/${item.username}/status/${item.tweetId}`, '_blank');
-  };
-
-  const handleCuratorTweetClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (item.curatorTweetId) {
-      window.open(`https://twitter.com/${item.curatorUsername}/status/${item.curatorTweetId}`, '_blank');
-    }
-  };
-
+const NewsCard = ({ item, showCuratorNotes = true }: NewsCardProps) => {
   return (
-    <div 
-      id={`news-card-${item.tweetId}`}
-      className={`bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden card-hover ${
-        isInView ? 'animate-fade-in-up' : 'opacity-0'
-      }`}
-      style={{ animationDelay: `${Math.random() * 0.3}s` }}
-    >
-      <div 
-        className="p-6 cursor-pointer" 
-        onClick={handleOriginalTweetClick}
-      >
-        <div className="flex items-center mb-4">
-          <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
-            <img 
-              src={`https://unavatar.io/twitter/${item.username}`} 
-              alt={item.username}
-              className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-              onLoad={() => setIsLoaded(true)}
-            />
+    <Card className="overflow-hidden h-full flex flex-col hover:shadow-md transition-shadow">
+      <CardContent className="p-4 flex-grow">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-semibold text-xs overflow-hidden">
+            {item.username.slice(0, 2).toUpperCase()}
           </div>
-          <div className="ml-3">
-            <h3 className="text-black font-medium">@{item.username}</h3>
-            <p className="text-gray-500 text-sm">{formatDate(item.createdAt)}</p>
-          </div>
-          <div className="ml-auto">
-            <ExternalLink size={16} className="text-gray-400" />
+          <div>
+            <p className="font-medium">@{item.username}</p>
+            <p className="text-xs text-gray-500">{formatDate(item.createdAt)}</p>
           </div>
         </div>
         
-        <div className="prose prose-sm max-w-none">
-          <p className="text-black">
-            {parts.map((part, i) => {
-              // If it matches a URL pattern
-              if (part.match(urlRegex)) {
-                return (
-                  <a 
-                    key={i}
-                    href={part}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand hover:text-brand/80 transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {part}
-                  </a>
-                );
-              }
-              return part;
-            })}
-          </p>
-        </div>
-        
-        {item.curatorNotes && (
-          <div 
-            className="mt-4 p-3 bg-gray-50 rounded-lg border border-gray-100 text-sm"
-            onClick={handleCuratorTweetClick}
-          >
-            <div className="flex items-center mb-1">
-              <span className="text-xs font-medium text-gray-500">Curator note by @{item.curatorUsername}</span>
+        <div>
+          <p className="whitespace-pre-line mb-2">{item.content}</p>
+          
+          {showCuratorNotes && item.curatorNotes && (
+            <div className="mt-3 pt-3 border-t border-gray-100">
+              <p className="text-xs text-gray-500 mb-1">Curator Notes:</p>
+              <p className="text-sm text-gray-600">{item.curatorNotes}</p>
             </div>
-            <p className="text-gray-700">{item.curatorNotes}</p>
-          </div>
-        )}
-      </div>
-    </div>
+          )}
+        </div>
+      </CardContent>
+      
+      <CardFooter className="p-4 pt-2 border-t border-gray-100 text-xs text-gray-500">
+        Curated by @{item.curatorUsername}
+      </CardFooter>
+    </Card>
   );
 };
 
