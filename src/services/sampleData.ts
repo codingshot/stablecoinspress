@@ -54,7 +54,7 @@ export default [
     "tweetId": "1894209175284011218",
     "userId": "1518996068687663104",
     "username": "artemis",
-    "content": "Congrats @base on reaching &gt;$4B of stablecoin supply\n\nBase is moving the world's economy onchain and payments, money movement are moving onchain. https://t.co/CRieDzKtQw",
+    "content": "Congrats @base on reaching >$4B of stablecoin supply\n\nBase is moving the world's economy onchain and payments, money movement are moving onchain. https://t.co/CRieDzKtQw",
     "curatorNotes": "@base",
     "curatorId": "1688730036474396672",
     "curatorUsername": "potlock_intern",
@@ -855,7 +855,7 @@ export default [
     "tweetId": "1901260859826970846",
     "userId": "1305859724802482178",
     "username": "KyleReidhead",
-    "content": "Already now $229 Billion\n\nAdding almost $2b in the last week\n\nStablecoin adoption doesn't care about price action\n\nThis is the first real use case in crypto to breakout from the "price cycles" https://t.co/0BoVRx9DG3",
+    "content": "Already now $229 Billion\n\nAdding almost $2b in the last week\n\nStablecoin adoption doesn't care about price action\n\nThis is the first real use case in crypto to breakout from the \"price cycles\" https://t.co/0BoVRx9DG3",
     "curatorNotes": "despite market down trends almost $2 billion in stablecoin market cap was added last week making the total over $229 billion",
     "curatorId": "1654266255711301632",
     "curatorUsername": "plugrel",
@@ -940,7 +940,7 @@ export default [
     "userId": "1039449274344529920",
     "username": "Dune",
     "content": "1/ Stablecoins are reshaping finance 🏦\n\nExplore all insights, market trends, asset deep dives, and more in \"The State of Stablecoins 2025\"— a comprehensive report by Dune & @artemis\n\nLink at the end of the thread 🧵 https://t.co/ociR0HJlsX",
-    "curatorNotes": "@artemis    Dune & Artemis launch the Stable of Stablecoins 2025 report",
+    "curatorNotes": "@artemis    Dune & Artemis launch the State of Stablecoins 2025 report",
     "curatorId": "1654266255711301632",
     "curatorUsername": "plugrel",
     "curatorTweetId": "1902017330655170880",
@@ -952,7 +952,7 @@ export default [
         "feedId": "stablecoins",
         "adminId": "plugrel",
         "action": "approve",
-        "note": "@artemis    Dune & Artemis launch the Stable of Stablecoins 2025 report",
+        "note": "@artemis    Dune & Artemis launch the State of Stablecoins 2025 report",
         "timestamp": "2025-03-18T15:20:44.000Z",
         "moderationResponseTweetId": "1902017330655170880"
       },
@@ -961,7 +961,7 @@ export default [
         "feedId": "usa",
         "adminId": "plugrel",
         "action": "approve",
-        "note": "@artemis    Dune & Artemis launch the Stable of Stablecoins 2025 report",
+        "note": "@artemis    Dune & Artemis launch the State of Stablecoins 2025 report",
         "timestamp": "2025-03-18T15:20:44.000Z",
         "moderationResponseTweetId": "1902017330655170880"
       }
@@ -994,4 +994,4 @@ export default [
     "status": "approved",
     "moderationResponseTweetId": "1902053783527440522"
   }
-];
+]
