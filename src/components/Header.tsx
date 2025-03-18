@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, MessageCircle, Edit } from 'lucide-react';
+import { Menu, X, MessageCircle, Send } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import SubmitNewsForm from './SubmitNewsForm';
 
@@ -43,7 +43,7 @@ const Header = () => {
           <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
             <DialogTrigger asChild>
               <button className="px-4 py-2 bg-brand text-white rounded-md hover:bg-brand/90 transition-colors flex items-center gap-2">
-                <Edit className="h-4 w-4" />
+                <Send className="h-4 w-4" />
                 Submit News
               </button>
             </DialogTrigger>
@@ -87,7 +87,7 @@ const Header = () => {
                     className="w-full flex justify-center items-center px-4 py-2 bg-brand text-white rounded-md hover:bg-brand/90 transition-colors gap-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <Edit className="h-4 w-4" />
+                    <Send className="h-4 w-4" />
                     Submit News
                   </button>
                 </DialogTrigger>

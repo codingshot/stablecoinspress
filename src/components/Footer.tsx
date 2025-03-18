@@ -30,7 +30,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="flex items-center text-gray-600 hover:text-brand transition-colors gap-2 mt-3"
             >
-              <Send className="h-5 w-5" />
+              <MessageCircle className="h-5 w-5" />
               <span>Telegram</span>
             </a>
           </div>
@@ -42,7 +42,7 @@ const Footer = () => {
                 <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
                   <DialogTrigger asChild>
                     <button className="text-gray-600 hover:text-brand transition-colors flex items-center gap-2">
-                      <MessageCircle className="h-5 w-5" />
+                      <Send className="h-5 w-5" />
                       <span>Submit News</span>
                     </button>
                   </DialogTrigger>
