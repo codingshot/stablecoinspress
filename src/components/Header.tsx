@@ -22,8 +22,12 @@ const Header = () => {
       isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-white py-5'
     }`}>
       <div className="container-narrow flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-jersey text-3xl font-semibold text-brand">stablecoins<span className="text-black">.press</span></span>
+        <Link to="/" className="flex items-center">
+          <img 
+            src="/lovable-uploads/bcf84bec-3fde-4e6c-acd7-65e52fbbaaab.png" 
+            alt="stablecoins.press logo" 
+            className="h-10 md:h-12"
+          />
         </Link>
 
         {/* Desktop Navigation */}
