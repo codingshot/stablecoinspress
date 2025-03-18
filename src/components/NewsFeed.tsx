@@ -166,7 +166,7 @@ const NewsFeed = () => {
         setSearchBy={setSearchBy}
         resetFilters={resetFilters}
         hasActiveFilters={hasActiveFilters}
-        curatorLabel="Show Curator Notes"
+        curatorLabel="Show Curator"
       />
 
       {filteredNews.length > 0 ? (

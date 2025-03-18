@@ -37,7 +37,7 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
   setSearchBy,
   resetFilters,
   hasActiveFilters,
-  curatorLabel = "Show Curator Notes"
+  curatorLabel = "Show Curator"
 }) => {
   const [showFilters, setShowFilters] = useState(false);
   const isMobile = useIsMobile();

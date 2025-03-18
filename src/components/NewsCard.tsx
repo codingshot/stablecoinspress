@@ -58,17 +58,19 @@ const NewsCard = ({ item, showCuratorNotes = true }: NewsCardProps) => {
         </div>
       </CardContent>
       
-      <CardFooter className="p-4 pt-2 border-t border-gray-100 text-xs text-gray-500">
-        Curated by{" "}
-        <a 
-          href={`https://x.com/${item.curatorUsername}`} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-gray-700 hover:text-brand transition-colors ml-1"
-        >
-          @{item.curatorUsername}
-        </a>
-      </CardFooter>
+      {showCuratorNotes && (
+        <CardFooter className="p-4 pt-2 border-t border-gray-100 text-xs text-gray-500">
+          Curated by{" "}
+          <a 
+            href={`https://x.com/${item.curatorUsername}`} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-700 hover:text-brand transition-colors ml-1"
+          >
+            @{item.curatorUsername}
+          </a>
+        </CardFooter>
+      )}
     </Card>
   );
 };
