@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Menu, X, Telegram } from 'lucide-react';
+import { Search, Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,7 +24,7 @@ const Header = () => {
       <div className="container-narrow flex items-center justify-between">
         <Link to="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/bcf84bec-3fde-4e6c-acd7-65e52fbbaaab.png" 
+            src="/lovable-uploads/603d52e2-2c07-43a9-80a0-67ce5195aa2b.png" 
             alt="stablecoins.press logo" 
             className="h-10 md:h-12"
           />
@@ -42,7 +42,22 @@ const Header = () => {
             className="text-black hover:text-brand transition-colors"
             aria-label="Telegram"
           >
-            <Telegram size={20} />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-telegram"
+            >
+              <path d="M21 12a9 9 0 1 1-9-9c4.97 0 9 4.03 9 9z"></path>
+              <path d="M15 10.1L9 13.8l-2-1"></path>
+              <path d="M9 13.8v2.3a.5.5 0 0 0 .68.4L15 10.1"></path>
+            </svg>
           </a>
           <button className="text-black hover:text-brand transition-colors">
             <Search size={20} />
@@ -76,7 +91,22 @@ const Header = () => {
               className="flex items-center text-black font-medium hover:text-brand transition-colors px-4 py-2 gap-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <Telegram size={18} />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-telegram"
+              >
+                <path d="M21 12a9 9 0 1 1-9-9c4.97 0 9 4.03 9 9z"></path>
+                <path d="M15 10.1L9 13.8l-2-1"></path>
+                <path d="M9 13.8v2.3a.5.5 0 0 0 .68.4L15 10.1"></path>
+              </svg>
               <span>Telegram</span>
             </a>
             <div className="px-4 py-2">
