@@ -4,6 +4,8 @@ import { NewsItem } from '@/types';
 import { fetchNews } from '@/services/api';
 import NewsCard from './NewsCard';
 import { Loader2 } from 'lucide-react';
+import { defaultNewsData } from '@/utils/defaultData';
+import { toast } from 'sonner';
 
 const NewsFeed = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
@@ -19,7 +21,10 @@ const NewsFeed = () => {
         setError(null);
       } catch (err) {
         console.error('Error fetching news:', err);
-        setError('Unable to load news. Please try again later.');
+        setError('Unable to load news from API. Showing fallback data.');
+        // Use default data in case of any error
+        setNews(defaultNewsData);
+        toast.error('Unable to load latest news from API. Showing fallback data.');
       } finally {
         setIsLoading(false);
       }
@@ -37,7 +42,7 @@ const NewsFeed = () => {
     );
   }
 
-  if (error) {
+  if (error && news.length === 0) {
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
         <p className="text-red-600">{error}</p>
@@ -56,6 +61,11 @@ const NewsFeed = () => {
       {news.map((item) => (
         <NewsCard key={item.tweetId} item={item} />
       ))}
+      {error && (
+        <div className="col-span-full mt-4 p-3 bg-amber-50 border border-amber-200 rounded-md text-amber-700 text-sm">
+          Note: Showing fallback data due to API issues. Some content may not be current.
+        </div>
+      )}
     </div>
   );
 };

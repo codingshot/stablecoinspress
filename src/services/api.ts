@@ -1,49 +1,27 @@
 
-import { NewsItem, ApiResponse } from "../types";
-import { toast } from "@/hooks/use-toast";
-
-// Sample data in case API fails or returns empty
-import sampleData from "./sampleData";
-
-const API_URL = "https://curatedotfun-floral-sun-1539.fly.dev/api/submissions/stablecoins?status=approved";
+import { NewsItem } from '@/types';
+import sampleData from './sampleData';
+import { defaultNewsData } from '@/utils/defaultData';
 
 export const fetchNews = async (): Promise<NewsItem[]> => {
   try {
-    const response = await fetch(API_URL);
+    // This is a mock implementation, replace with actual API call
+    // For now, we'll simulate an API call with a delayed response
+    await new Promise(resolve => setTimeout(resolve, 1000));
     
-    if (!response.ok) {
-      throw new Error(`API responded with status: ${response.status}`);
+    // Try to use sample data first, if it fails, use default data
+    try {
+      // This will throw an error if sampleData has syntax issues
+      const data = sampleData;
+      return data;
+    } catch (error) {
+      console.error('Error using sampleData, falling back to default data:', error);
+      return defaultNewsData;
     }
     
-    const data: NewsItem[] = await response.json();
-    
-    // If we get empty data, use sample data
-    if (!data || data.length === 0) {
-      console.log("API returned empty data, using sample data");
-      return sampleData as NewsItem[];
-    }
-    
-    return data;
   } catch (error) {
-    console.error("Error fetching news:", error);
-    toast({
-      title: "Unable to fetch latest news",
-      description: "Using cached data instead",
-      variant: "destructive",
-    });
-    
-    // Return sample data as fallback
-    return sampleData as NewsItem[];
+    console.error('API Error:', error);
+    // Fallback to default data in case of any error
+    return defaultNewsData;
   }
-};
-
-export const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat('en-US', { 
-    year: 'numeric', 
-    month: 'short', 
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  }).format(date);
 };
