@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Send, Upload } from 'lucide-react';
+import { Menu, X, Send, Upload, BookOpen } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import SubmitNewsForm from './SubmitNewsForm';
 
@@ -28,6 +28,13 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
+          <Link 
+            to="/learn" 
+            className="text-black hover:text-brand transition-colors flex items-center gap-1" 
+          >
+            <BookOpen className="h-5 w-5" />
+            <span>Learn</span>
+          </Link>
           <a 
             href="https://t.me/stablecoinspress" 
             target="_blank" 
@@ -60,6 +67,14 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md animate-fade-in-up">
           <div className="container py-4 flex flex-col space-y-4">
+            <Link 
+              to="/learn" 
+              className="flex items-center text-black font-medium hover:text-brand transition-colors px-4 py-2 gap-2" 
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <BookOpen className="h-5 w-5" />
+              <span>Learn</span>
+            </Link>
             <a 
               href="https://t.me/stablecoinspress" 
               target="_blank" 

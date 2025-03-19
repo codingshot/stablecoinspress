@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Send, Upload } from 'lucide-react';
+import { Send, Upload, BookOpen } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import SubmitNewsForm from './SubmitNewsForm';
 import { useState } from 'react';
@@ -37,6 +37,15 @@ const Footer = () => {
           <div>
             <h3 className="font-jersey text-brand font-medium mb-2 text-lg">Resources</h3>
             <ul className="space-y-2">
+              <li>
+                <Link 
+                  to="/learn" 
+                  className="text-gray-600 hover:text-brand transition-colors flex items-center gap-2"
+                >
+                  <BookOpen className="h-5 w-5" />
+                  <span>Learn</span>
+                </Link>
+              </li>
               <li>
                 <Dialog open={isSubmitDialogOpen} onOpenChange={setIsSubmitDialogOpen}>
                   <DialogTrigger asChild>
