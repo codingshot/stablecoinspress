@@ -11,7 +11,18 @@ interface NewsCardProps {
 }
 
 const NewsCard = ({ item, showCuratorNotes = true }: NewsCardProps) => {
-  const tweetUrl = `https://x.com/${item.username}/status/${item.tweetId}`;
+  // Handle item properties safely with fallbacks
+  const username = item.username || 'anonymous';
+  const tweetUrl = item.tweetId ? `https://x.com/${username}/status/${item.tweetId}` : '#';
+  const createdAt = item.createdAt || new Date().toISOString();
+  const content = item.content || 'No content available';
+  const curatorUsername = item.curatorUsername || 'unknown';
+  
+  // Get initials safely
+  const getInitials = (username: string) => {
+    if (!username || typeof username !== 'string') return 'UN';
+    return username.slice(0, 2).toUpperCase();
+  };
   
   return (
     <Card className="overflow-hidden h-full flex flex-col hover:shadow-md transition-shadow">
@@ -19,21 +30,21 @@ const NewsCard = ({ item, showCuratorNotes = true }: NewsCardProps) => {
         <div className="flex items-center gap-2 mb-3">
           <Avatar className="w-10 h-10">
             <AvatarFallback className="bg-gray-200 text-gray-600 font-semibold text-xs">
-              {item.username.slice(0, 2).toUpperCase()}
+              {getInitials(username)}
             </AvatarFallback>
           </Avatar>
           <div>
             <p className="font-medium">
               <a 
-                href={`https://x.com/${item.username}`} 
+                href={`https://x.com/${username}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-brand transition-colors"
               >
-                @{item.username}
+                @{username}
               </a>
             </p>
-            <p className="text-xs text-gray-500">{formatDate(item.createdAt)}</p>
+            <p className="text-xs text-gray-500">{formatDate(createdAt)}</p>
           </div>
           <a 
             href={tweetUrl}
@@ -47,7 +58,7 @@ const NewsCard = ({ item, showCuratorNotes = true }: NewsCardProps) => {
         </div>
         
         <div>
-          <p className="whitespace-pre-line mb-2">{item.content}</p>
+          <p className="whitespace-pre-line mb-2">{content}</p>
           
           {showCuratorNotes && item.curatorNotes && (
             <div className="mt-3 pt-3 border-t border-gray-100">
@@ -58,16 +69,16 @@ const NewsCard = ({ item, showCuratorNotes = true }: NewsCardProps) => {
         </div>
       </CardContent>
       
-      {showCuratorNotes && (
+      {showCuratorNotes && curatorUsername && (
         <CardFooter className="p-4 pt-2 border-t border-gray-100 text-xs text-gray-500">
           Curated by{" "}
           <a 
-            href={`https://x.com/${item.curatorUsername}`} 
+            href={`https://x.com/${curatorUsername}`} 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-700 hover:text-brand transition-colors ml-1"
           >
-            @{item.curatorUsername}
+            @{curatorUsername}
           </a>
         </CardFooter>
       )}
