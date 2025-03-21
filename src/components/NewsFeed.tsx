@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useMemo } from 'react';
 import { NewsItem } from '@/types';
 import { fetchNews, formatDate } from '@/services/api';
@@ -14,6 +13,7 @@ const NewsFeed = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isUsingFallbackData, setIsUsingFallbackData] = useState(false);
 
   // Search and filter state
   const [searchTerm, setSearchTerm] = useState('');
@@ -30,11 +30,13 @@ const NewsFeed = () => {
         const data = await fetchNews();
         setNews(data);
         setError(null);
+        setIsUsingFallbackData(false);
       } catch (err) {
         console.error('Error fetching news:', err);
         setError('Unable to load news from API. Showing fallback data.');
         // Use default data in case of any error
         setNews(defaultNewsData);
+        setIsUsingFallbackData(true);
         toast.error('Unable to load latest news from API. Showing fallback data.');
       } finally {
         setIsLoading(false);
@@ -183,7 +185,7 @@ const NewsFeed = () => {
         <EmptyState resetFilters={resetFilters} searchTerm={searchTerm} />
       )}
 
-      {error && filteredNews.length > 0 && (
+      {isUsingFallbackData && (
         <div className="col-span-full mt-4 p-3 bg-amber-50 border border-amber-200 rounded-md text-amber-700 text-sm">
           Note: Showing fallback data due to API issues. Some content may not be current.
         </div>
