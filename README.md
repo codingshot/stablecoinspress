@@ -1,54 +1,21 @@
-# Welcome to your Lovable project
+# Curate.fun Boilerplate Site
+The following is a newsfeed site for your curate fun feed that includes newsfeed and SEO optimized. 
+- Resources page for relevant docs
 
-## Project info
+What to change
+- Favicon
+- Metaimage
+- API Endpoint
+- Resrouces Page
+- Logo
+- Theme
+- Metadescription, tags, etc
 
-**URL**: https://lovable.dev/projects/a17b7425-c3bb-47ca-928c-0f407331184d
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/a17b7425-c3bb-47ca-928c-0f407331184d) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## In the Future
+- Content Produced
+- Weekly Newsletter
+- Make it easy
 
 ## What technologies are used for this project?
 
@@ -60,10 +27,45 @@ This project is built with .
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/a17b7425-c3bb-47ca-928c-0f407331184d) and click on Share -> Publish.
 
-## I want to use a custom domain - is that possible?
+# About Curate.fun
+<div align="center">
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+<img src="https://www.curate.fun/meta.png" alt="curate.fun banner" width="100%" />
+
+<h1 style="font-size: 2.5rem; font-weight: bold;">curate.fun</h1>
+
+  <p>
+    <strong>curate news on socials & build community-owned autonomous brands</strong>
+  </p>
+
+  <p>
+    <a href="https://docs.curate.fun" target="_blank"><strong>📚 Documentation</strong></a> •
+    <a href="https://github.com/potlock/curatedotfun" target="_blank"><strong>💻 GitHub</strong></a> •
+    <a href="https://x.com/curatedotfun" target="_blank"><strong>🐦 Twitter</strong></a> •
+    <a href="https://t.me/+UM70lvMnofk3YTVh" target="_blank"><strong>💬 Telegram</strong></a>
+  </p>
+
+</div>
+
+
+## Getting Started
+
+Choose your path to get started with curate.fun ⚡
+
+### For Curators
+
+If you want to submit and curate content:
+
+1. 🎯 Head to the [User Guide](https://docs.curate.fun/docs/user-guides/curation)
+2. 🔗 Learn how to submit content and moderate feeds
+3. 🌟 Apply to become a curator for specific feeds
+
+### For Developers
+
+If you want to build and customize feeds:
+
+1. 📖 Start with the [Configuration Guide](https://docs.curate.fun/docs/developers/configuration)
+2. 🚀 Learn about [Deployment](https://docs.curate.fun/docs/developers/deployment)
+3. 🔌 Explore [Plugin Development](https://docs.curate.fun/docs/developers/plugins)
